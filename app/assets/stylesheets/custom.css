@@ -1,0 +1,8 @@
+.index-catchphrase {
+    color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    font-size: 40px;
+}

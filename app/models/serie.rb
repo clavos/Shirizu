@@ -1,2 +1,3 @@
 class Serie < ApplicationRecord
+
 end

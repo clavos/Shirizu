@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= image_tag @episode.cover, :style => "width: 150px; height: 150px; object-fit: cover;"%>
+</p>
+
+<p>
+  <strong>Titre :</strong>
+  <%= @episode.name %>
+</p>
+
+<p>
+  <strong>Storyline:</strong>
+  <%= @episode.storyline %>
+</p>
+
+<p>
+  <strong>Runtime:</strong>
+  <%= @episode.runtime %> minutes
+</p>
+
+<p>
+  <strong>Release at:</strong>
+  <%= @episode.release_at %>
+</p>
+
+<%= link_to 'Edit', edit_episode_path(@episode) %> |
+<%= link_to 'Back', episodes_path %>

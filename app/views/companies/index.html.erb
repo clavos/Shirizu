@@ -1,0 +1,41 @@
+<h1>Liste des sociétés de production</h1>
+
+<% if @companies.any?%>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Icône</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.icon %></td>
+        <td>
+          <%= link_to 'Afficher', company, class: 'btn btn-info' %>
+          <% if user_signed_in? %>
+            <%= link_to 'Modifier', edit_company_path(company), class: 'btn btn-warning' %>
+            <%= link_to 'Supprimer', company,
+                        method: :delete,
+                        data: {
+                            confirm: 'Etes-vous sûr(e) de vouloir supprimer cette société de production ?'
+                        },
+                        class: 'btn btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+<%else%>
+  <p>
+    Il n'y a pas encore de société de production.
+  </p>
+<%end%>
+<% if user_signed_in? %>
+  <p>
+    <%= link_to 'Ajouter une société de production', new_company_path, class: 'btn btn-success' %>
+  </p>
+<% end %>

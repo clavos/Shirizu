@@ -1,0 +1,9 @@
+<% if seasons.any? %>
+  <% seasons.map do |s| %>
+    <%= link_to s do %>
+      <%= s.number %>
+    <% end %>
+  <% end %>
+<%else%>
+  &empty;
+<% end %>

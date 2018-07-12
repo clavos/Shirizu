@@ -1,0 +1,44 @@
+<h1>Liste des séries</h1>
+
+<% if @shows.any? %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Sociétés de production</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @shows.each do |show| %>
+      <tr>
+        <td><%= show.title %></td>
+        <td>
+          <%= render 'companies/companies_list', companies: show.companies %>
+        </td>
+        <td>
+          <%= link_to 'Afficher', show, class: 'btn btn-info' %>
+          <% if user_signed_in? %>
+          <%= link_to 'Modifier', edit_show_path(show), class: 'btn btn-warning' %>
+          <%= link_to 'Supprimer', show,
+                      method: :delete,
+                      data: {
+                          confirm: 'Etes-vous sûr(e) de vouloir supprimer cette série ?'
+                      },
+                      class: 'btn btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>
+    Il n'y a pas encore de série.
+  </p>
+<% end %>
+<% if user_signed_in? %>
+<p>
+  <%= link_to 'Ajouter une série', new_show_path, class: 'btn btn-success' %>
+</p>
+<% end %>

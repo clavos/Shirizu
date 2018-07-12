@@ -1,0 +1,9 @@
+<% if companies.any? %>
+  <% companies.map do |c| %>
+    <%= link_to c do %>
+        <%= c.name %>
+    <% end %>
+  <% end %>
+<%else%>
+  &empty;
+<%end%>

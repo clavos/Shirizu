@@ -1,0 +1,21 @@
+<%= simple_form_for(@season) do |form| %>
+
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= form.input :number, label: 'Numéro', class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= form.input :cover, label: 'Image de couverture', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= form.association :show, label: 'Série', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Enregistrer', class: 'btn btn-primary' %>
+    <%= link_to 'Retour à la liste des saisons', seasons_path, class: 'btn btn-default' %>
+  </div>
+<% end %>

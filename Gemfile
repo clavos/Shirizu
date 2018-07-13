@@ -27,6 +27,8 @@ gem 'devise'
 gem 'devise-i18n'
 # Traduction generales
 gem 'rails-i18n', '~> 5.1'
+# upload de fichier
+gem 'carrierwave', '~> 1.0'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

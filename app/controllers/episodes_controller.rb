@@ -1,8 +1,9 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: [:show, :edit, :update, :destroy]
+  before_action :set_episode, only: %i[show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
-    @episodes = Episode.all
+    @episodes = Episode.includes(:season)
   end
 
   def show
@@ -40,7 +41,7 @@ class EpisodesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_episode
-      @episode = Episode.find(params[:id])
+      @episode = Episode.includes(:season).find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

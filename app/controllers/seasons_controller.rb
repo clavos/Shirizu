@@ -2,25 +2,20 @@ class SeasonsController < ApplicationController
   before_action :set_season, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
-  # GET /seasons
   def index
     @seasons = Season.includes(:show)
   end
 
-  # GET /seasons/1
   def show
   end
 
-  # GET /seasons/new
   def new
     @season = Season.new
   end
 
-  # GET /seasons/1/edit
   def edit
   end
 
-  # POST /seasons
   def create
     @season = Season.new(season_params)
       if @season.save
@@ -30,7 +25,6 @@ class SeasonsController < ApplicationController
       end
   end
 
-  # PATCH/PUT /seasons/1
   def update
       if @season.update(season_params)
         redirect_to @season, notice: 'Season was successfully updated.'
@@ -39,7 +33,6 @@ class SeasonsController < ApplicationController
       end
   end
 
-  # DELETE /seasons/1
   def destroy
     @season.destroy
       redirect_to seasons_url, notice: 'Season was successfully destroyed.'

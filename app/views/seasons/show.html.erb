@@ -11,7 +11,11 @@
     <%= show.title %>
   <% end %>
 </p>
-<p>Liste des épisodes :</p>
+<p>
+  Liste des épisodes :
+  <br>
+  <%= render 'seasons/episodes_list', episodes: @season.episodes %>
+</p>
 <p>
   <% if user_signed_in? %>
     <%= link_to 'Modifier', edit_season_path(@season), class: 'btn btn-warning' %>

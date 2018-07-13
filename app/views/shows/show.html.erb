@@ -11,14 +11,18 @@
 </p>
 
 <p>
+  <%= link_to 'New Episode', new_episode_path %>
   mettre :
   - add
   - commentaires
 </p>
 
 <p>
-  Liste des saisons :
-  <%= render 'shows/seasons_list', seasons: @show.seasons %>
+<h3>Liste des saisons :</h3>
+    <div class="panel-group" id="accordion">
+      <%= render 'shows/seasons_list', seasons: @show.seasons %>
+    </div>
+  <br>
 </p>
 
 <p>

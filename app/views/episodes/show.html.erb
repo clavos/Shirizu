@@ -24,5 +24,19 @@
   <%= @episode.release_at %>
 </p>
 
+
+<section class="section comments">
+  <div class="container">
+    <h2 class="subtitle is-5"><strong><%= @episode.comments.count %></strong> Comments</h2>
+    <%= render @episode.comments %>
+    <div class="comment-form">
+      <hr />
+      <h3 class="subtitle is-3">Leave a reply</h3>
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+</section>
+
+
 <%= link_to 'Edit', edit_episode_path(@episode) %> |
 <%= link_to 'Back', episodes_path %>

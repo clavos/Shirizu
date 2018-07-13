@@ -1,7 +1,16 @@
 <% if seasons.any? %>
   <% seasons.map do |s| %>
     <%= link_to s do %>
-      <%= s.number %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= s.number %>">Saison <%= s.number %></a>
+          </h4>
+        </div>
+        <div id="collapse<%= s.number %>" class="panel-collapse collapse">
+          <div class="panel-body"><%= render 'seasons/episodes_list', episodes: s.episodes %></div>
+        </div>
+      </div>
     <% end %>
   <% end %>
 <%else%>

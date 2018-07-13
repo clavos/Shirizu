@@ -1,0 +1,9 @@
+<% if episodes.any? %>
+  <% episodes.map do |e| %>
+    <%= link_to e do %>
+      - <%= e.name %>
+    <% end %>
+  <% end %>
+<%else%>
+  &empty;
+<% end %>

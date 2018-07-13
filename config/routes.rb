@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :episodes
+  resources :episodes do
+    resources :comments
+  end
   resources :seasons
   resources :companies
   devise_for :users

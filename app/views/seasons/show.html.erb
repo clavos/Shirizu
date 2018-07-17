@@ -1,0 +1,24 @@
+<h1>Saison <%= @season.number %> de <%= @season.show.title %></h1>
+
+<p>Numéro: <%= @season.number %></p>
+<p>Image de couverture: <%= @season.cover %></p>
+<p>
+  Série:
+  <% show = @season.show %>
+  <% if show.nil? %>
+    &empty;
+  <% else %>
+    <%= show.title %>
+  <% end %>
+</p>
+<p>
+  Liste des épisodes :
+  <br>
+  <%= render 'seasons/episodes_list', episodes: @season.episodes %>
+</p>
+<p>
+  <% if user_signed_in? %>
+    <%= link_to 'Modifier', edit_season_path(@season), class: 'btn btn-warning' %>
+  <% end %>
+  <%= link_to 'Retour à la liste des saisons', seasons_path, class: 'btn btn-default' %>
+</p>

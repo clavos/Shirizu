@@ -1,0 +1,49 @@
+<h1>Liste des saisons</h1>
+
+<% if @seasons.any?%>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Numéro</th>
+      <th>Image de couverture</th>
+      <th>Série</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @seasons.each do |season| %>
+      <tr>
+        <td><%= season.number %></td>
+        <td><%= season.cover %></td>
+        <td>
+          <% if season.show.nil? %>
+            &empty;
+          <% else %>
+            <%= season.show.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Afficher', season, class: 'btn btn-info' %>
+          <% if user_signed_in? %>
+            <%= link_to 'Modifier', edit_season_path(season), class: 'btn btn-warning' %>
+            <%= link_to 'Supprimer', season,
+                        method: :delete,
+                        data: {
+                            confirm: 'Etes-vous sûr(e) de vouloir supprimer cette saison ?'
+                        },
+                        class: 'btn btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+    <%end%>
+    </tbody>
+  </table>
+<%else%>
+  <p>
+    Il n'y a pas encore de saison.
+  </p>
+<%end%>
+<% if user_signed_in? %>
+  <p>
+    <%= link_to 'Ajouter une saison', new_season_path, class: 'btn btn-success' %>
+  </p>
+<% end %>

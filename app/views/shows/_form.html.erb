@@ -1,0 +1,30 @@
+<%= simple_form_for(show) do |form| %>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= form.input :title, label:'Titre', class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= form.input :storyline, label:'Synopsis',class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= form.input :release_date, label: 'Date de la première diffusion', class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= form.input :end_date, label: 'Date de la dernière diffusion', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= form.input :cover, label: 'Image', class: 'form-control' %>
+    </div>
+    <div class="form-group col-lg-6">
+      <%= form.association :companies, as: :check_boxes, label: 'Maisons de production ', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Enregistrer', class: 'btn btn-primary' %>
+    <%= link_to 'Retour à la liste des séries', shows_path, class: 'btn btn-default' %>
+  </div>
+<%end%>

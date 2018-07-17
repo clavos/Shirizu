@@ -1,0 +1,12 @@
+<h1>Affichage d'une société de production</h1>
+
+<p>Name : <%= @company.name %></p>
+
+<p>Icon : <%= @company.icon %></p>
+
+<p>
+  <% if user_signed_in? %>
+    <%= link_to 'Modifier', edit_company_path(@company), class: 'btn btn-warning' %>
+  <% end %>
+  <%= link_to 'Retour à la liste des société de production', companies_path, class: 'btn btn-default' %>
+</p>

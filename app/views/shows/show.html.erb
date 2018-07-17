@@ -1,0 +1,33 @@
+<h1>Affichage d'une série</h1>
+
+<p>Titre : <%= @show.title %></p>
+<p>Image de couverture : <%= @show.cover %></p>
+<p>Synopsis : <%= @show.storyline %></p>
+<p>Date de la première diffusion : <%= @show.release_date %></p>
+<p>Date de la dernière diffusion : <%= @show.end_date %></p>
+<p>
+  Sociétés de production:
+  <%= render 'companies/companies_list', companies: @show.companies %>
+</p>
+
+<p>
+  <%= link_to 'New Episode', new_episode_path %>
+  mettre :
+  - add
+  - commentaires
+</p>
+
+<p>
+<h3>Liste des saisons :</h3>
+    <div class="panel-group" id="accordion">
+      <%= render 'shows/seasons_list', seasons: @show.seasons %>
+    </div>
+  <br>
+</p>
+
+<p>
+  <% if user_signed_in? %>
+    <%= link_to 'Modifier', edit_show_path(@show), class: 'btn btn-warning' %>
+  <% end %>
+  <%= link_to 'Retour à la liste des séries', shows_path, class: 'btn btn-default' %>
+</p>

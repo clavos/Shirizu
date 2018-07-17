@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :set_episode, only: %i[show edit update destroy saw]
+  before_action :authenticate_user!, only: %i[new create edit update destroy saw]
 
   def index
     @episodes = Episode.includes(:season)

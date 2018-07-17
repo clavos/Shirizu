@@ -2,3 +2,17 @@
   Optimize your watch !
   <%= Rails.application.class.parent_name %> !
 </h1>
+
+<div class="section">
+  <p>Épisodes àjouté aujourd'hui: </p>
+  <% @episodes.each do |episode| %>
+    <%= episode.name %>
+  <% end %>
+</div>
+
+<div class="section">
+  <p>Nouvelles série qui commencent aujourd'hui: </p>
+  <% @shows.each do |show| %>
+    <%= show.title %>
+  <% end %>
+</div>

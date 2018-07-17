@@ -1,0 +1,15 @@
+<%= simple_form_for(@episode) do |f| %>
+
+  <div class="form-inputs">
+    <% for role in User.all %>
+      <div>
+        <%= check_box_tag "user[episode_ids][]", role.id, current_user.episodes.include?(role) %>
+        <%= role.username %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

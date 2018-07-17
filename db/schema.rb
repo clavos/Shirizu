@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_13_204539) do
+ActiveRecord::Schema.define(version: 2018_07_17_193716) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 2018_07_13_204539) do
     t.integer "season_id"
     t.string "image"
     t.index ["season_id"], name: "index_episodes_on_season_id"
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.string "name"
   end
 
   create_table "seasons", force: :cascade do |t|
@@ -86,6 +90,15 @@ ActiveRecord::Schema.define(version: 2018_07_13_204539) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
+  end
+
+  create_table "users_episodes", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "episode_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["episode_id"], name: "index_users_episodes_on_episode_id"
+    t.index ["user_id"], name: "index_users_episodes_on_user_id"
   end
 
 end

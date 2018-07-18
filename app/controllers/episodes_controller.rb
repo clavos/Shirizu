@@ -1,6 +1,6 @@
 class EpisodesController < ApplicationController
-  before_action :set_episode, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  before_action :set_episode, only: %i[show edit update destroy saw]
+  before_action :authenticate_user!, only: %i[new create edit update destroy saw]
 
   def index
     @episodes = Episode.includes(:season)
@@ -46,6 +46,6 @@ class EpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def episode_params
-      params.require(:episode).permit(:name, :storyline, :image, :runtime, :release_at)
+      params.require(:episode).permit(:name, :storyline, :image, :runtime, :release_at, { user_ids:[] })
     end
 end

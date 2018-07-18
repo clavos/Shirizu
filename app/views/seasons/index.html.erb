@@ -5,7 +5,6 @@
     <thead>
     <tr>
       <th>Numéro</th>
-      <th>Image de couverture</th>
       <th>Série</th>
     </tr>
     </thead>
@@ -13,7 +12,6 @@
     <% @seasons.each do |season| %>
       <tr>
         <td><%= season.number %></td>
-        <td><%= season.cover %></td>
         <td>
           <% if season.show.nil? %>
             &empty;

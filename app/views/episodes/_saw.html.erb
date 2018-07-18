@@ -1,0 +1,28 @@
+<%= form_for(@episode.users.build(:user_ids[] => current_user.id)) do |f| %>
+  <%= f.hidden_field :user_ids %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
+<%= simple_form_for(@episode) do |f| %>
+
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :storyline %>
+  <%= f.hidden_field :image, as: :file%>
+  <%= f.hidden_field :runtime %>
+  <%= f.hidden_field :release_at %>
+  <%= f.hidden_field :release_at %>
+
+  <% for user in User.all %>
+    <div>
+      <%= check_box_tag "user[episode_ids][]", user.id, user.episodes.include?(user) %>
+      <%= user.username %>
+    </div>
+  <% end %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

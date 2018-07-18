@@ -1,4 +1,4 @@
-<%= simple_form_for(@episode) do |f| %>
+<%= simple_form_for(@users_episodes) do |f| %>
 
   <div class="form-inputs">
     <%= f.input :name %>
@@ -6,11 +6,6 @@
     <%= f.input :image, as: :file%>
     <%= f.input :runtime %>
     <%= f.input :release_at %>
-  </div>
-  <div class="row">
-    <div class="form-group col-lg-6">
-      <%= f.association :season, label: 'Saison', class: 'form-control' %>
-    </div>
   </div>
 
   <div class="form-actions">

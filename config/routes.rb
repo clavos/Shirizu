@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :episodes do
+  resources :episodes, only: [:index, :show, :update, :saw, :create, :new, :destroy, :edit]  do
     resources :comments
   end
   resources :seasons

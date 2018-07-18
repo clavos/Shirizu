@@ -1,7 +1,6 @@
-<h1>Saison <%= @season.number %> de <%= @season.show.title %></h1>
+<h1>Saison <%= @season.number %> <% if !@season.show.nil? %> de <%= @season.show.title %><% end %></h1>
 
 <p>Numéro: <%= @season.number %></p>
-<p>Image de couverture: <%= @season.cover %></p>
 <p>
   Série:
   <% show = @season.show %>

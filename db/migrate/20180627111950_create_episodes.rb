@@ -3,7 +3,6 @@ class CreateEpisodes < ActiveRecord::Migration[5.2]
     create_table :episodes do |t|
       t.string :name
       t.string :storyline
-      t.string :cover
       t.integer :runtime
       t.datetime :release_at
 

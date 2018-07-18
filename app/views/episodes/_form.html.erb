@@ -7,6 +7,11 @@
     <%= f.input :runtime %>
     <%= f.input :release_at %>
   </div>
+  <div class="row">
+    <div class="form-group col-lg-6">
+      <%= f.association :season, label: 'Saison', class: 'form-control' %>
+    </div>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit %>
